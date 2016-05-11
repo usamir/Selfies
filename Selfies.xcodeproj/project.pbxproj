@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		F292CD6A1CDCD3F800AA1E67 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F292CD691CDCD3F800AA1E67 /* ImageViewController.swift */; };
+		F292CD6C1CE25AB900AA1E67 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F292CD6B1CE25AB900AA1E67 /* DetailViewController.swift */; };
 		F29BDE9B1CDCB0A100309891 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29BDE9A1CDCB0A100309891 /* AppDelegate.swift */; };
 		F29BDE9D1CDCB0A100309891 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29BDE9C1CDCB0A100309891 /* ViewController.swift */; };
 		F29BDEA01CDCB0A100309891 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F29BDE9E1CDCB0A100309891 /* Main.storyboard */; };
@@ -17,6 +18,7 @@
 
 /* Begin PBXFileReference section */
 		F292CD691CDCD3F800AA1E67 /* ImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
+		F292CD6B1CE25AB900AA1E67 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		F29BDE971CDCB0A100309891 /* Selfies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Selfies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F29BDE9A1CDCB0A100309891 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F29BDE9C1CDCB0A100309891 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 				F29BDEA31CDCB0A100309891 /* LaunchScreen.storyboard */,
 				F29BDEA61CDCB0A100309891 /* Info.plist */,
 				F292CD691CDCD3F800AA1E67 /* ImageViewController.swift */,
+				F292CD6B1CE25AB900AA1E67 /* DetailViewController.swift */,
 			);
 			path = Selfies;
 			sourceTree = "<group>";
@@ -141,6 +144,7 @@
 				F292CD6A1CDCD3F800AA1E67 /* ImageViewController.swift in Sources */,
 				F29BDE9D1CDCB0A100309891 /* ViewController.swift in Sources */,
 				F29BDE9B1CDCB0A100309891 /* AppDelegate.swift in Sources */,
+				F292CD6C1CE25AB900AA1E67 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

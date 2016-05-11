@@ -15,6 +15,7 @@ class ViewController: UITableViewController {
     var photo: UIImage!
     var images: [UIImage] = []
     var path: NSURL!
+    var paths: [NSURL] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,17 +33,39 @@ class ViewController: UITableViewController {
         return images.count
     }
     
-    
+    // Fill cell with data
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("selfieCell")! as UITableViewCell
-        var imagePath = self.path.relativePath!.characters.split{$0 == "/"}.map(String.init)
+        
+        var imagePath = self.paths[indexPath.row].relativePath!.characters.split{$0 == "/"}.map(String.init)
         cell.textLabel?.text = imagePath[imagePath.count - 1]
 
         let imageName = images[indexPath.row]
         cell.imageView?.image = imageName
         
         return cell
+    }
+    
+    var selectedImage: UIImage!
+    // Selected cell which will be detailed
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        let indexPath = tableView.indexPathForSelectedRow!
+        let currentCell = tableView.cellForRowAtIndexPath(indexPath)! as UITableViewCell
+        
+        selectedImage = currentCell.imageView?.image
+        performSegueWithIdentifier("Detail", sender: self)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if (segue.identifier == "Detail") {
+            
+            // initialize new view controller and cast it as your view controller
+            let viewController = segue.destinationViewController as! DetailViewController
+            // your new view controller should have property that will store passed value
+            viewController.newImage = selectedImage
+        }
     }
     
     
@@ -82,6 +105,8 @@ class ViewController: UITableViewController {
                     }
                     // Add image to array
                     self.addImgToArray(self.photo)
+                    // Add path to array
+                    self.addPathToArray(self.path)
                 })
             }
         }
@@ -90,6 +115,10 @@ class ViewController: UITableViewController {
     
     func addImgToArray(uploadImage: UIImage) {
         self.images.append(uploadImage)
+    }
+    
+    func addPathToArray(uploadPath: NSURL) {
+        self.paths.append(uploadPath)
     }
 
 }
