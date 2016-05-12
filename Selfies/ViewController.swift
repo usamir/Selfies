@@ -17,11 +17,28 @@ class ViewController: UITableViewController {
     var path: NSURL!
     var paths: [NSURL] = []
     
+    // support for table
+    var selectedImage: UIImage!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // constant
+        let secondsInDay: Double = 864000
+        
+        // first fetch all photos
         FetchCustomAlbumPhotos()
         
+        // create notification
+        let dailyNotification = UILocalNotification()
+        dailyNotification.fireDate = NSDate(timeIntervalSinceNow: secondsInDay)
+        dailyNotification.alertBody = "Time to take the selfie!"
+        dailyNotification.timeZone = NSTimeZone.defaultTimeZone()
+        dailyNotification.applicationIconBadgeNumber = UIApplication.sharedApplication().applicationIconBadgeNumber + 1
+        dailyNotification.repeatInterval = NSCalendarUnit.Day
+        
+        // add notification
+        UIApplication.sharedApplication().scheduleLocalNotification(dailyNotification)
     }
 
     override func didReceiveMemoryWarning() {
@@ -47,7 +64,7 @@ class ViewController: UITableViewController {
         return cell
     }
     
-    var selectedImage: UIImage!
+    
     // Selected cell which will be detailed
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
@@ -60,15 +77,13 @@ class ViewController: UITableViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "Detail") {
-            
-            // initialize new view controller and cast it as your view controller
             let viewController = segue.destinationViewController as! DetailViewController
-            // your new view controller should have property that will store passed value
+            // pass iamge from cell to detail view controller
             viewController.newImage = selectedImage
         }
     }
     
-    
+    // Get all photos already in Selfie Album
     func FetchCustomAlbumPhotos() {
         let albumName = "SelfiesAlbum"
         var assetCollection = PHAssetCollection()

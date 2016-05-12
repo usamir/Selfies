@@ -108,7 +108,7 @@
                             <constraint firstItem="hIA-oV-QTy" firstAttribute="top" secondItem="6HX-27-yus" secondAttribute="bottom" id="dDI-ah-Z1c"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="Iky-wm-2Sr">
+                    <navigationItem key="navigationItem" title="Detail" id="Iky-wm-2Sr">
                         <barButtonItem key="rightBarButtonItem" title="Share" id="g5R-hz-L1Q" userLabel="Share">
                             <connections>
                                 <action selector="onShare:" destination="esO-1c-tVt" id="gkB-Hc-Gph"/>
